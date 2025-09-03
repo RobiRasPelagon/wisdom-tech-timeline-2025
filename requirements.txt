@@ -1,1 +1,21 @@
-# Add your project dependencies here
+# --- Project Dependencies ---
+# This file lists all the external Python libraries required for the project.
+# Install them using the command: pip install -r requirements.txt
+
+# Core libraries for data handling and configuration
+numpy
+pandas
+pyyaml
+
+# Libraries for AI and Machine Learning (we will use these later)
+tensorflow
+scikit-learn
+stable-baselines3
+
+# Libraries for interacting with hardware (e.g., Raspberry Pi, sensors)
+# RPi.GPIO
+# adafruit-circuitpython-dht
+
+# Libraries for data visualization (optional, for development)
+matplotlib
+seaborn
