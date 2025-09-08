@@ -1,71 +1,77 @@
 import re
 
-class IntentParser:
-    def __init__(self):
-        self.intent_patterns = {
-            "greeting": [
-                r"\b(hi|hello|hey)\b",                      # English
-                r"\b(здраво|поздрав|ајде)\b",               # Macedonian
-                r"\b(zdravo|pozdrav|ćao|hej)\b"             # Serbian
-            ],
-            "goodbye": [
-                r"\b(bye|goodbye|see you)\b",
-                r"\b(чао|довиђење|се гледаме)\b",
-                r"\b(ćao|doviđenja|vidimo se)\b"
-            ],
-            "thanks": [
-                r"\b(thanks|thank you)\b",
-                r"\b(благодарам|фала)\b",
-                r"\b(hvala|zahvaljujem)\b"
-            ],
-            "weather": [
-                r"\b(weather|rain|sunny|forecast)\b",
-                r"\b(време|дожд|сонце|прогноза)\b",
-                r"\b(vreme|kiša|sunce|prognoza)\b"
-            ],
-            "news": [
-                r"\b(news|headlines|updates)\b",
-                r"\b(вести|новости|информации)\b",
-                r"\b(vesti|novosti|informacije)\b"
-            ],
-            "joke": [
-                r"\b(joke|funny|laugh)\b",
-                r"\b(виц|смешно|се смеам)\b",
-                r"\b(vic|smešno|smeh)\b"
-            ],
-            "name": [
-                r"\b(name|who are you)\b",
-                r"\b(име|кој си ти)\b",
-                r"\b(ime|ko si ti)\b"
-            ],
-            "age": [
-                r"\b(age|how old)\b",
-                r"\b(години|колку години)\b",
-                r"\b(godine|koliko godina)\b"
-            ],
-            "help": [
-                r"\b(help|support|assist)\b",
-                r"\b(помош|поддршка|асистенција)\b",
-                r"\b(pomoć|podrška|asistencija)\b"
-            ]
+# Дефиниција на намери со клучни зборови и одговори на три јазици
+intents = {
+    "greeting": {
+        "keywords": ["hello", "hi", "hey", "hola", "здраво", "поздрав", "ајде", "zdravo", "pozdrav", "ćao", "hej"],
+        "responses": {
+            "en": "Hello! How can I help you?",
+            "mk": "Здраво! Како можам да ти помогнам?",
+            "sr": "Zdravo! Kako mogu da ti pomognem?"
         }
+    },
+    "goodbye": {
+        "keywords": ["bye", "goodbye", "see you", "adios", "чао", "довиђење", "се гледаме", "ćao", "doviđenja", "vidimo se"],
+        "responses": {
+            "en": "Goodbye! Have a great day!",
+            "mk": "Чао! Имај убав ден!",
+            "sr": "Doviđenja! Prijatan dan!"
+        }
+    },
+    "thanks": {
+        "keywords": ["thanks", "thank you", "gracias", "благодарам", "фала", "hvala", "zahvaljujem"],
+        "responses": {
+            "en": "You're welcome!",
+            "mk": "Нема на што!",
+            "sr": "Nema na čemu!"
+        }
+    },
+    "weather": {
+        "keywords": ["weather", "rain", "sunny", "forecast", "време", "дожд", "сонце", "прогноза", "vreme", "kiša", "sunce", "prognoza"],
+        "responses": {
+            "en": "I'm not sure, but you can check a weather website.",
+            "mk": "Не сум сигурен, но можеш да провериш на веб-страница за временска прогноза.",
+            "sr": "Nisam siguran, ali možeš da pogledaš vremensku prognozu na nekom sajtu."
+        }
+    },
+    "joke": {
+        "keywords": ["joke", "funny", "laugh", "виц", "смешно", "се смеам", "vic", "smešno", "smeh"],
+        "responses": {
+            "en": "Why did the AI cross the road? To optimize both sides!",
+            "mk": "Зошто АИ премина улица? За да ги оптимизира двете страни!",
+            "sr": "Zašto je AI prešao ulicu? Da optimizuje obe strane!"
+        }
+    },
+    "help": {
+        "keywords": ["help", "support", "assist", "помош", "поддршка", "асистенција", "pomoć", "podrška", "asistencija"],
+        "responses": {
+            "en": "I'm here to assist you. What do you need?",
+            "mk": "Тука сум да ти помогнам. Што ти треба?",
+            "sr": "Tu sam da ti pomognem. Šta ti treba?"
+        }
+    },
+    "unknown": {
+        "keywords": [],
+        "responses": {
+            "en": "I'm sorry, I didn't understand that.",
+            "mk": "Извини, не те разбрав.",
+            "sr": "Izvini, nisam razumeo."
+        }
+    }
+}
 
-    def parse_intent(self, user_input: str) -> str:
-        user_input = user_input.lower()
-        for intent, patterns in self.intent_patterns.items():
-            for pattern in patterns:
-                if re.search(pattern, user_input):
-                    return intent
-        return "unknown"
+def parse_intent(text: str, language: str = "en") -> str:
+    text = text.lower()
+    for intent, data in intents.items():
+        for keyword in data["keywords"]:
+            if re.search(r'\b' + re.escape(keyword) + r'\b', text):
+                return data["responses"].get(language, data["responses"]["en"])
+    return intents["unknown"]["responses"].get(language, intents["unknown"]["responses"]["en"])
 
-# Пример
+# Пример за употреба
 if __name__ == "__main__":
-    parser = IntentParser()
-    test_inputs = [
-        "Здраво пријателе!",
-        "Can you help me?",
-        "Vidimo se kasnije.",
-        "Какво е времето денес?"
-    ]
-    for text in test_inputs:
-        print(f"Input: {text} → Intent: {parser.parse_intent(text)}")
+    print("Type your message (English, Македонски, Srpski):")
+    user_input = input("You: ")
+    lang_choice = input("Choose language (en/mk/sr): ").strip().lower()
+    response = parse_intent(user_input, language=lang_choice)
+    print("Bot:", response)
