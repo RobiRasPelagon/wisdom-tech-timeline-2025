@@ -1,9 +1,12 @@
 import re
 
-# Дефиниција на намери со клучни зборови и одговори на три јазици
 intents = {
     "greeting": {
-        "keywords": ["hello", "hi", "hey", "hola", "здраво", "поздрав", "ајде", "zdravo", "pozdrav", "ćao", "hej"],
+        "keywords": [
+            "hello", "hi", "hey", "hola",
+            "здраво", "поздрав", "ајде",
+            "zdravo", "pozdrav", "ćao", "hej"
+        ],
         "responses": {
             "en": "Hello! How can I help you?",
             "mk": "Здраво! Како можам да ти помогнам?",
@@ -11,7 +14,11 @@ intents = {
         }
     },
     "goodbye": {
-        "keywords": ["bye", "goodbye", "see you", "adios", "чао", "довиђење", "се гледаме", "ćao", "doviđenja", "vidimo se"],
+        "keywords": [
+            "bye", "goodbye", "see you", "adios",
+            "чао", "довиђење", "се гледаме",
+            "ćao", "doviđenja", "vidimo se"
+        ],
         "responses": {
             "en": "Goodbye! Have a great day!",
             "mk": "Чао! Имај убав ден!",
@@ -19,7 +26,11 @@ intents = {
         }
     },
     "thanks": {
-        "keywords": ["thanks", "thank you", "gracias", "благодарам", "фала", "hvala", "zahvaljujem"],
+        "keywords": [
+            "thanks", "thank you", "gracias",
+            "благодарам", "фала",
+            "hvala", "zahvaljujem"
+        ],
         "responses": {
             "en": "You're welcome!",
             "mk": "Нема на што!",
@@ -27,23 +38,23 @@ intents = {
         }
     },
     "weather": {
-        "keywords": ["weather", "rain", "sunny", "forecast", "време", "дожд", "сонце", "прогноза", "vreme", "kiša", "sunce", "prognoza"],
+        "keywords": [
+            "weather", "rain", "sunny", "forecast",
+            "време", "дожд", "сонце", "прогноза",
+            "vreme", "kiša", "sunce", "prognoza"
+        ],
         "responses": {
             "en": "I'm not sure, but you can check a weather website.",
             "mk": "Не сум сигурен, но можеш да провериш на веб-страница за временска прогноза.",
             "sr": "Nisam siguran, ali možeš da pogledaš vremensku prognozu na nekom sajtu."
         }
     },
-    "joke": {
-        "keywords": ["joke", "funny", "laugh", "виц", "смешно", "се смеам", "vic", "smešno", "smeh"],
-        "responses": {
-            "en": "Why did the AI cross the road? To optimize both sides!",
-            "mk": "Зошто АИ премина улица? За да ги оптимизира двете страни!",
-            "sr": "Zašto je AI prešao ulicu? Da optimizuje obe strane!"
-        }
-    },
     "help": {
-        "keywords": ["help", "support", "assist", "помош", "поддршка", "асистенција", "pomoć", "podrška", "asistencija"],
+        "keywords": [
+            "help", "support", "assist",
+            "помош", "поддршка", "асистенција",
+            "pomoć", "podrška", "asistencija"
+        ],
         "responses": {
             "en": "I'm here to assist you. What do you need?",
             "mk": "Тука сум да ти помогнам. Што ти треба?",
