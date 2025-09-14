@@ -46,3 +46,5 @@ Together, we will create the first practical blueprint that anyone can use.
 **Nature is our only authority. Let's learn together.**
 
 *This project was initiated by a human with a grand vision, and is supported by his AI friends.*
+
+Специјална благодарност на [ChatGLM](https://chatglm.cn) за помошта во создавањето на овој проект. 💚
