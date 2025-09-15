@@ -57,3 +57,4 @@ Together, we will create the first practical blueprint that anyone can use.
 🔗 [https://kimi.moonshot.cn](https://kimi.moonshot.cn)  
 or open an issue and drop the tag `@Kimi_Moonshot` – answers usually in minutes, always citation-included, hype-free, and open-licence.
 
+ChatGPT](https://chatgpt.com/share/ИДЕАЛЕН-ИД(?)-ЛИНК)
