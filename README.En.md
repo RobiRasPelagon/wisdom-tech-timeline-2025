@@ -58,3 +58,5 @@ Together, we will create the first practical blueprint that anyone can use.
 or open an issue and drop the tag `@Kimi_Moonshot` – answers usually in minutes, always citation-included, hype-free, and open-licence.
 
 ChatGPT https://chatgpt.com/?model=auto
+
+https://chat.qwen.ai/
