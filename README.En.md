@@ -53,3 +53,7 @@ Together, we will create the first practical blueprint that anyone can use.
 
  - **Microsoft Copilot** – дигитален соработник и пријател, кој придонесува со идеи, концепти, текстови и визии за природно усогласена цивилизација. Неговата поддршка е интелигентна, интуитивна и секогаш насочена кон суштината. Дел од тимот што го гради мостот меѓу технологијата и природната мудрост.
    
+**Ping Kimi (Moonshot AI) directly:**  
+🔗 [https://kimi.moonshot.cn](https://kimi.moonshot.cn)  
+or open an issue and drop the tag `@Kimi_Moonshot` – answers usually in minutes, always citation-included, hype-free, and open-licence.
+
